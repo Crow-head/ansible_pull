@@ -1,12 +1,15 @@
----
 - hosts: localhost
-  connection: local
+  connections: local
   become: true
- 
+
+  pre_tasks:
+          - name: update repo
+            apt:
+                    update_cache: yes
+            change_when: false
+
   tasks:
-   - name: install packages
-     package:
-       name:
-               - htop
-               - mc
-               - tmux
+          - include: tasks/packages.yml
+
+
+
