@@ -1,5 +1,4 @@
-- hosts: localhost
-  connection: local
+- hosts: db
   become: true
 
   pre_tasks:
@@ -12,6 +11,3 @@
     - include: tasks/users.yml
     - include: tasks/cron.yml
     - include: tasks/packages.yml
-
-
-
